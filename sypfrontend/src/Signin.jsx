@@ -9,13 +9,15 @@ const Signin = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-white">
-      <img
-        src="src/assets/logo.jpg"
-        alt="Hotels.com Logo"
-        className="w-16 mb-4"
-      />
-      <h1 className="text-2xl font-semibold mb-2">Hotels.com</h1>
-      <p className="text-gray-600 text-center mb-6 ">
+      <div className="flex flex-wrap">
+        <img
+          src="src/assets/logo.png"
+          alt="Hotels.com Logo"
+          className="w-7 mb-4 rounded-lg"
+        />
+        <h1 className="text-2xl font-semibold ml-2">Hotels.com</h1>
+      </div>
+      <p className="text-gray-600 text-center mb-6 text-sm">
         Unlock a world of travel with one account across worldwide <br />
         booking platforms with Hotels.com.
       </p>
