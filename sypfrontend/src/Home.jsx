@@ -47,7 +47,7 @@ const Hotel = () => {
             placeholder="2 travellers, 1 room"
             className="border p-2 rounded-md w-1/3"
           />
-          <button className="bg-blue-500 text-white px-6 py-2 rounded-md">Search</button>
+          <button className="bg-blue-500 text-250px py-2 rounded-md">Search</button>
         </div>
       </main>
 
@@ -72,46 +72,50 @@ const Hotel = () => {
         </button>
       </section>
 
-      <section className="mt-8  ">
+      <section className="mt-8">
         <div>
           <h3 className="text-2xl font-semibold mb-4">Discover your new favourite stay</h3>
           <div
             ref={sliderRef}
-            className="flex gap-4 overflow-x-auto scrollbar-hidden"
-            style={{ scrollBehavior: "smooth" }}
+            className="flex gap-5 overflow-x-auto scrollbar-hidden scroll-smooth"
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseLeave}
+            style={{
+              scrollBehavior: "smooth",
+              scrollbarWidth: "none", 
+              msOverflowStyle: "none",
+            }}
           >
             <img
               src="src/assets/villa.jpeg"
-              className="w-[calc(100%/6)] h-[250px] object-cover rounded-lg"
+              className="w-[250px] h-[270px] object-cover rounded-lg"
               alt="Villa"
             />
             <img
               src="src/assets/apart.jpg"
-              className="w-[calc(100%/6)] h-[250px] object-cover rounded-lg"
+              className="w-[250px] h-[270px] object-cover rounded-lg"
               alt="Apartment"
             />
             <img
               src="src/assets/family.jpg"
-              className="w-[calc(100%/6)] h-[250px] object-cover rounded-lg"
+              className="w-[250px] h-[270px] object-cover rounded-lg"
               alt="Family"
             />
             <img
               src="src/assets/apartment.jpg"
-              className="w-[calc(100%/6)] h-[250px] object-cover rounded-lg"
+              className="w-[250px] h-[270px] object-cover rounded-lg"
               alt="Apartment"
             />
             <img
               src="src/assets/resort.jpg"
-              className="w-[calc(100%/6)] h-[250px] object-cover rounded-lg"
+              className="w-[250px] h-[270px] object-cover rounded-lg"
               alt="Resort"
             />
             <img
               src="src/assets/lake.jpg"
-              className="w-[calc(100%/6)] h-[250px] object-cover rounded-lg"
+              className="w-[250px] h-[270px] object-cover rounded-lg"
               alt="Lake"
             />
           </div>
