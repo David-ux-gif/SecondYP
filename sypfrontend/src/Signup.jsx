@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Signup = () => {
   const [formdata, setformdata] = useState({
-    email: "",
     username: "",
+    email: "",
     password: "",
   });
+  const [showPopup, setShowPopup] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,17 +18,27 @@ const Signup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Submitted:", formdata);
     try {
-      const response = await axios.post("your-api-endpoint/signup", formdata);
-      console.log("Signup successful:", response.data);
-    } catch (error) {
-      console.error("Error during signup:", error);
+      await axios.post("http://localhost:5000/signup", formdata);
+      setShowPopup(true);
+      setTimeout(() => {
+        setShowPopup(false);
+        navigate("/signin");
+      }, 1000); 
+    } catch (err) {
+      console.log(err);
     }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-white">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-white relative">
+      {/* Popup Message */}
+      {showPopup && (
+        <div className="absolute top-10 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-4 py-2 rounded-md shadow-lg">
+          Registration Successful!
+        </div>
+      )}
+
       <div className="flex flex-wrap items-center">
         <img
           src="src/assets/logo.png"
@@ -101,12 +113,6 @@ const Signup = () => {
         </span>
         .
       </p>
-
-      <div className="flex mt-6 space-x-2">
-        <img src="src/assets/logo1.jpg" alt="Expedia" className="w-16" />
-        <img src="src/assets/logo2.jpg" alt="Hotels" className="w-16" />
-        <img src="src/assets/logo3.jpg" alt="Vrbo" className="w-16" />
-      </div>
     </div>
   );
 };
