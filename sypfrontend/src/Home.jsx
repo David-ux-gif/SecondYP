@@ -126,7 +126,7 @@ const Hotel = () => {
         </h3>
         <div
           ref={sliderRef}
-          className="flex gap-5 overflow-x-auto scrollbar-hidden scroll-smooth"
+          className="flex gap-5 overflow-x-auto scrollbar-hidden scroll-smooth h-[210px]"
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
@@ -140,7 +140,7 @@ const Hotel = () => {
           {properties.map((property, index) => (
             <div
               key={index}
-              className="w-[250px] h-[200px] flex-shrink-0 bg-white rounded-lg shadow-md overflow-hidden"
+              className="w-[250px] h-[200px] flex-shrink-0 bg-white rounded-2xl shadow-lg overflow-hidden"
             >
               <img
                 src={property.src}
