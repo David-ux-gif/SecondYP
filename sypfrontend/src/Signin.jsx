@@ -79,12 +79,13 @@ const Signin = () => {
 
         <label className="block text-gray-700 text-sm mb-1">Password</label>
         <input
-          type="password"
+          type="Password"
           name="password"
           value={formdata.password}
           onChange={handleChange}
           className="w-full border-b border-gray-400 focus:outline-none p-1 text-sm mb-4"
           placeholder="Enter password.."
+          required
         />
 
         <button

@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import hotelImage from "./assets/hotel1.png";
-
+import Footer from "./Foot";
 
 const Hotel = () => {
   const sliderRef = useRef(null);
@@ -29,6 +29,15 @@ const Hotel = () => {
     setIsDragging(false);
   };
 
+  const properties = [
+    { src: "src/assets/villa.jpg", alt: "Villa", name: "Villa" },
+    { src: "src/assets/apartment.jpg", alt: "Apartment", name: "Apartment"},
+    { src: "src/assets/family.jpg", alt: "Family", name: "Family Home" },
+    { src: "src/assets/resort.jpg", alt: "Resort", name: "Resort" },
+    { src: "src/assets/lake.jpg", alt: "Lake", name: "Lake House" },
+    { src: "src/assets/apart.jpg", alt: "Apart", name: "Apart" },
+  ];
+
   const destinations = [
     {
       name: "Kathmandu",
@@ -55,12 +64,17 @@ const Hotel = () => {
       location: "Koshi Province, Nepal",
       image: "src/assets/sagarmatha.jpg",
     },
+    {
+      name: "Bhedetar",
+      location: "Koshi Province, Nepal",
+      image: "src/assets/bhedetar.jpg",
+    },
   ];
 
   return (
     <div className="min-h-screen flex flex-col items-center ml-25 mr-25">
       <main
-        className="relative mt-5 rounded-md bg-cover bg-center w-full h-96 flex flex-col justify-center items-center text-white"
+        className="relative mt-5 rounded-lg bg-cover bg-center w-full h-96 flex flex-col justify-center items-center text-white"
         style={{ backgroundImage: `url(${hotelImage})` }}
       >
         <h2 className="text-4xl font-semibold mb-4">
@@ -106,56 +120,38 @@ const Hotel = () => {
         </button>
       </section>
 
-      <section className="mt-8">
-        <div>
-          <h3 className="text-2xl font-semibold mb-4">
-            Discover your new favourite stay
-          </h3>
-          <div
-            ref={sliderRef}
-            className="flex gap-5 overflow-x-auto scrollbar-hidden scroll-smooth"
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseLeave}
-            style={{
-              scrollBehavior: "smooth",
-              scrollbarWidth: "none",
-              msOverflowStyle: "none",
-            }}
-          >
-            <img
-              src="src/assets/villa.jpg"
-              className="w-[250px] h-[270px] object-cover rounded-lg"
-              alt="Villa"
-            />
-
-            <img
-              src="src/assets/apart.jpg"
-              className="w-[250px] h-[270px] object-cover rounded-lg"
-              alt="Apartment"
-            />
-            <img
-              src="src/assets/family.jpg"
-              className="w-[250px] h-[270px] object-cover rounded-lg"
-              alt="Family"
-            />
-            <img
-              src="src/assets/apartment.jpg"
-              className="w-[250px] h-[270px] object-cover rounded-lg"
-              alt="Apartment"
-            />
-            <img
-              src="src/assets/resort.jpg"
-              className="w-[250px] h-[270px] object-cover rounded-lg"
-              alt="Resort"
-            />
-            <img
-              src="src/assets/lake.jpg"
-              className="w-[250px] h-[270px] object-cover rounded-lg"
-              alt="Lake"
-            />
-          </div>
+      <section className="mt-8 w-full">
+        <h3 className="text-2xl font-semibold mb-4">
+          Discover your new favourite stay
+        </h3>
+        <div
+          ref={sliderRef}
+          className="flex gap-5 overflow-x-auto scrollbar-hidden scroll-smooth"
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseLeave}
+          style={{
+            scrollBehavior: "smooth",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+          }}
+        >
+          {properties.map((property, index) => (
+            <div
+              key={index}
+              className="w-[250px] h-[200px] flex-shrink-0 bg-white rounded-lg shadow-md overflow-hidden"
+            >
+              <img
+                src={property.src}
+                alt={property.alt}
+                className="w-full h-2/3 object-cover"
+              />
+              <p className="mt-2 text-lg font-semibold text-center">
+                {property.name}
+              </p>
+            </div>
+          ))}
         </div>
 
         <h3 className="text-2xl font-semibold mt-8 mb-4">
@@ -181,6 +177,7 @@ const Hotel = () => {
           ))}
         </div>
       </section>
+      <Footer />
     </div>
   );
 };
