@@ -1,7 +1,9 @@
 const express = require("express")
 const mongoose = require("mongoose")
+
 const cors = require("cors")
 const User = require("./models/Authentication")
+ 
 
 const app = express()
 app.use(cors())

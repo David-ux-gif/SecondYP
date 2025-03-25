@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Foot = () => {
   return (
-    <footer className=" w-auto my-10 mx-9 shadow-2xl rounded-2xl ">
+    <footer className=" w-full my-10 mx-9 shadow-2xl rounded-2xl ">
       <div className="w-full mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* About Section */}
